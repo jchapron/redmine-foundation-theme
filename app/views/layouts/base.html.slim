@@ -1,15 +1,16 @@
-doctype
+doctype html
 html lang=current_language
   head
     meta charset="utf-8"
-    title=h html_title
-    meta name="description" content= Redmine::Info.app_name
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    title== html_title
+    meta name="description" content=Redmine::Info.app_name
     meta name="keywords" content="issue,bug,tracker"
     = csrf_meta_tag
     = favicon
     = javascript_heads
     = javascript_include_tag "foundation_theme/application"
-    = stylesheet_link_tag 'jquery/jquery-ui-1.9.2', 'application', :media => 'all'
+    = stylesheet_link_tag 'jquery/jquery-ui-1.11.0', 'application', :media => 'all'
     = stylesheet_link_tag "foundation_theme/application"
     = stylesheet_link_tag 'rtl', :media => 'all' if l(:direction) == 'rtl'
     = heads_for_theme
@@ -27,6 +28,7 @@ html lang=current_language
         = render_menu :top_menu, nil, {class: "left"} if User.current.logged? || !Setting.login_required?
 
         ul.right
+          li.jumpbox-container= render_project_jump_box
           li.has-dropdown.not-click
             - if User.current.logged?
               = link_to "#{l(:label_logged_as)} #{User.current}".html_safe, "#", "data-dropdown" => "drop1"

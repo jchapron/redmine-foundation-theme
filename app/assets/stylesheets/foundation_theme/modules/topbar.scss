@@ -1,22 +1,47 @@
 .top-bar.fixed-top {
   position: fixed;
   top: 0;
-  z-index: 10001;
+  z-index: 9999;
   width: 100%;
   background-color: $first-grey;
+  height: $topbar-height;
 }
 
 .top-bar .title-area {
   width: 240px;
   background: $primary-color !important;
+  .name {
+    height: $topbar-height;
+  }
   li > h1 > a {
-	color: #FFF !important;
+    color: #FFF !important;
     background: $primary-color !important;
+    height: $topbar-height;
+    font-size: 1.2625rem !important;
   }
 }
 
 .top-bar-section {
-	a {
+  li:not(.has-form) a:not(.button) {
+    line-height: 60px;
+    font-size: 0.95rem;
 		color: #FFF !important;
 	}
+  .has-dropdown > a:after {
+    top: 29.5px !important;
+  }
+}
+
+.jumpbox-container {
+  width: 330px;
+  margin: 17px 40px 0 0;
+  a.select2-choice {
+    background: white !important;
+    span {
+      line-height: 23px;
+    }
+  }
+  .select2-container {
+    width: 330px !important;
+  }
 }
